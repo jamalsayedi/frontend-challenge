@@ -1,0 +1,66 @@
+* {
+  box-sizing: border-box;
+  outline: 0;
+}
+body {
+  padding: 0;
+  margin: 0;
+  height: 100vh;
+  background: whitesmoke;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.v-form {
+  max-width: 300px;
+  min-width: 200px;
+  width: 100%;
+}
+
+.field-container {
+  margin-bottom: 1.25rem;
+}
+
+.field-container label {
+  display: block;
+  font-size: 1.12rem;
+  text-transform: capitalize;
+}
+
+.form-control {
+  margin-top: 0.625rem;
+  padding: 1rem 0.5rem;
+  width: 100%;
+  font-size: 0.875rem;
+  border: 1px solid #f1f1f1;
+  transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  -webkit-transition: all 0.2s ease;
+}
+
+.form-control.btn {
+  background: rgb(146, 136, 121);
+  cursor: pointer;
+  font-size: 1.2rem;
+  width: 45%;
+}
+
+.form-control.submit {
+  background: rgb(215, 179, 124);
+}
+
+.field-container.invalid label{
+  color: rgb(235, 127, 127);
+}
+.field-container.invalid .form-control{
+  color: rgb(235, 127, 127);
+  background-color: rgba(235, 127, 127, 0.1);
+}
+
+.field-container.invalid .validationMessage{
+  color: rgb(235, 127, 127);
+  font-size: 0.875rem;
+}

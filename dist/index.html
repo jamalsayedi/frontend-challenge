@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <!-- This is a *view* - HTML markup that defines the appearance of your UI -->
+    <div id="app">
+      <form
+        class="v-form"
+        data-bind="
+        submit: handleSubmit, 
+        visible: !completed()"
+      >
+        <h2>Registeration Form</h2>
+        <div
+          data-bind="
+            template: {
+                name:'fieldTemplate', 
+                foreach: steps()[currentStepId()].fields()
+            }
+        "
+        ></div>
+        <button
+          type="button"
+          data-bind="
+                    click: prev, 
+                    visible: currentStepId()>0        
+      "
+          class="form-control btn"
+        >
+          &lt;&lt; Back
+        </button>
+        <button
+          type="submit"
+          data-bind="
+                  text: steps()[currentStepId()].btnText(), 
+                  click: handleSubmit 
+                "
+          class="form-control btn submit"
+        ></button>
+      </form>
+      <div data-bind="visible:completed()">
+        Congrats. the user successfully has been created.
+      </div>
+      <script id="fieldTemplate" type="text/html">
+        <div class="field-container"
+                data-bind="
+                visible: visible,
+                css: {
+                    invalid: !__isValid()
+                }
+                ">
+            <label >
+                <span data-bind="text: label"></span>
+                <span data-bind="template: {name: template}"></span>
+            </label>
+        </div>
+      </script>
+
+      <script id="inputTemplate" type="text/html">
+        <input data-bind="
+                    value: val,
+                    attr: {
+                        type: props.type,
+                        placeholder:props.placeholder || label
+                    }
+                " class="form-control">
+      </script>
+
+      <script id="selectTemplate" type="text/html">
+        <select data-bind="
+                    value: val,
+                    options: props.options,
+                    optionsCaption: props.optionsCaption
+                    "
+                class="form-control">
+        </select>
+      </script>
+    </div>
+
+    <script src="js/app.js"></script>
+  </body>
+</html>

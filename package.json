@@ -4,7 +4,8 @@
   "description": "Sheypoor frontend challenge",
   "main": "sdk/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "gulp scripts",
+    "start": "gulp watch"
   },
   "repository": {
     "type": "git",
@@ -17,6 +18,16 @@
   },
   "homepage": "https://github.com/sheypoor/frontend-challenge#readme",
   "dependencies": {
-    "sdk": "file:sdk"
+    "sdk": "file:sdk",
+    "knockout": "^3.5.0",
+    "knockout.validation": "^2.0.3"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.26.7",
+    "eslint": "^6.3.0",
+    "gulp": "^4.0.2",
+    "gulp-browserify": "^0.5.1",
+    "gulp-cli": "^2.2.0",
+    "gulp-rename": "^1.4.0"
   }
 }
